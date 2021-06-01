@@ -1,26 +1,25 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { Alert, Button } from "react-bootstrap";
+import { Accordion, Alert, Button, Card } from "react-bootstrap";
 
 export default function App() {
   return (
     <div>
-      <h1 className="bg-primary text-align p-2">React Bootstrap</h1>
-      <Button variant="outline-success" size="lg">
-        React Button
-      </Button>
-      <Alert variant="primary">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
-        quos adipisci error illo, possimus, culpa blanditiis consequatur commodi
-        ipsum quis minus ex sunt quaerat, atque earum quisquam voluptatum eum
-        explicabo!
-      </Alert>
-      <Alert variant="primary">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
-        quos adipisci error illo, possimus, culpa blanditiis consequatur commodi
-        ipsum quis minus ex sunt quaerat, atque earum quisquam voluptatum eum
-        explicabo!
-      </Alert>
+      <h2>React Booststrap AccordianEx</h2>
+      <Accordion defaultActiveKey="0">
+        {[1, 2, 3].map((item, index) => (
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle as={Button} variant="link" eventKey={index + 1}>
+                Vehicle {index + 1}
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey={index + 1}>
+              <Card.Body>Hello! I'm the body</Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        ))}
+      </Accordion>
     </div>
   );
 }
