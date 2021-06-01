@@ -1,25 +1,27 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { Accordion, Alert, Button, Card } from "react-bootstrap";
+import { Carousel } from "react-bootstrap";
 
 export default function App() {
   return (
     <div>
-      <h2>React Booststrap AccordianEx</h2>
-      <Accordion defaultActiveKey="0">
+      <h2 className="bg-dark text-light p-2">React Booststrap CarouselEx</h2>
+
+      <Carousel>
         {[1, 2, 3].map((item, index) => (
-          <Card>
-            <Card.Header>
-              <Accordion.Toggle as={Button} variant="link" eventKey={index + 1}>
-                Vehicle {index + 1}
-              </Accordion.Toggle>
-            </Card.Header>
-            <Accordion.Collapse eventKey={index + 1}>
-              <Card.Body>Hello! I'm the body</Card.Body>
-            </Accordion.Collapse>
-          </Card>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={"https://picsum.photos/200" + index}
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
         ))}
-      </Accordion>
+      </Carousel>
     </div>
   );
 }
